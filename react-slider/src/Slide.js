@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './Slider.scss'
 
 class Slide extends Component {
+    
     render() {
+        console.log(this.props.background);
         let slideStyle = { 
                          backgroundImage: `url( ${this.props.background})`,
                          backgroundRepeat:  'no-repeat',

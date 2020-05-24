@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import Header from './Header';
 import Slide from './Slide';
+import slider1 from './slider-img1.png';
+import slider2 from './slider-img2.png';
+import slider3 from './slider-img3.png';
 import './Slider.scss'
 
 class Slider extends Component {
@@ -9,21 +13,24 @@ class Slider extends Component {
             activeSlide: 0,
             slides : [
                 {
-                    background: "https://www.w3schools.com/w3images/coffee.jpg",
-                    text: "Coffee"
+                    background: slider1,
+                    text: "img1"
                 },
                 {
-                    background: "https://www.w3schools.com/w3images/workbench.jpg",
-                    text: "Workbench"
+                    background: slider2,
+                    text: "img2"
                 },
                 {
-                    background: "https://www.w3schools.com/w3images/sound.jpg",
-                    text: "Sound"
+                    background: slider3,
+                    text: "img3"
                 }
             ]
         })
       }
-    
+
+      componentDidMount() {
+          
+      }
       prevSlide = () => {
         const { slides } = this.state;
         let slide = this.state.activeSlide - 1 < 0 ? slides.length - 1 : this.state.activeSlide - 1;
@@ -41,22 +48,30 @@ class Slider extends Component {
     render() {
         const { slides } = this.state;
         return (
-            <div className="slider">
-                <div>
-                    {slides.map((slide, index) => {
-                    return (
-                        <Slide
-                        key={index}
-                        background={slide.background}
-                        text={slide.text}
-                        active={index === this.state.activeSlide}
-                        />
-                    );
-                })}
-                <div className="leftArrow" onClick={this.nextSlide}>오른버튼</div>
-                <div className="rightArrow" onClick={this.prevSlide}>왼쪽버튼</div>
+            <div className="wrap">
+                <Header />
+                <div className="slider">
+                    <div>
+                        {slides.map((slide, index) => {
+                        return (
+                            <Slide
+                            key={index}
+                            background={slide.background}
+                            text={slide.text}
+                            active={index === this.state.activeSlide}
+                            />
+                        );
+                    })}
+                        <div className="leftArrow" onClick={this.nextSlide}>오른버튼</div>
+                        <div className="rightArrow" onClick={this.prevSlide}>왼쪽버튼</div>
+                    </div>
+                    <div>
+                        우층애들
+                    </div>
                 </div>
+                
             </div>
+            
         );
     }
 };

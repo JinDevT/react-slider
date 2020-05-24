@@ -1,10 +1,13 @@
+.wrap {
+  height: 100%;
+}
 .slider__slide{
-    height: 50vw;
+    height: 320px;
     background-repeat: no-repeat;
     background-size:cover;
     background-position:center;
     opacity:0;
-    width:100%;
+    width:810px;
     position:absolute;
    transition:all 1s ease-in-out;
     
@@ -45,10 +48,10 @@
         }
     }
   
-  .slide{
+  .slider{
     position:relative;
     overflow:hidden;
-    height:50vw;
+    top: 128px;
     padding:0;
   }
   
